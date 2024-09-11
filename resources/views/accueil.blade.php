@@ -4,6 +4,9 @@
 
 @section('content')
 
+@include('layouts.navigation')
+
+
     <div class="flex h-full">
         <!-- Sidebar -->
         <div class="w-20 bg-[#002F34] flex flex-col justify-between items-center py-5">

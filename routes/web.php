@@ -11,8 +11,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/accueil', function () { return view('accueil');} )->middleware(['auth', 'verified'])->name('accueil');
+
 Route::middleware('auth')->group(function () {
-    Route::get('/accueil', function () {return view('accueil'); })->name('accueil');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
