@@ -4,6 +4,7 @@
 
 @section('content')
 
+
     <div class="flex h-full">
         <!-- Sidebar -->
         <div class="w-20 bg-gray-700 flex flex-col justify-between items-center py-5">
