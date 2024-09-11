@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AccueilController;
+use App\Http\Controllers\PatternController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -12,6 +14,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/accueil', function () { return view('accueil');} )->middleware(['auth', 'verified'])->name('accueil');
+Route::get("/accueil2",[AccueilController::class,'index'])->middleware(['auth', 'verified'])->name('accueil2');
+
+Route::post('/validate-pattern', [PatternController::class, 'validatePattern']);
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

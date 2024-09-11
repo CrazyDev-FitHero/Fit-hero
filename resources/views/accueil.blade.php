@@ -4,7 +4,6 @@
 
 @section('content')
 
-
 <div class="flex h-screen bg-main">
     <!-- Sidebar -->
     <div class="w-15 bg-radient flex flex-col justify-between items-center py-5">
@@ -51,7 +50,7 @@
                     <div data-index="8" class="w-12 h-12 bg-gray-300 rounded-full flex justify-center items-center">
                     </div>
                 </div>
-                <div class="mt-5 text-xl text-black">STR: 400</div>
+                <div class="mt-5 text-xl text-black">STR: {{ $puissance }}</div>
             </div>
 
             <!-- Right Panel -->

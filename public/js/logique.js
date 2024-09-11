@@ -87,15 +87,47 @@ function drawLine(start, end) {
     ctx.closePath();
 }
 
-function validatePattern() {
-    // if (JSON.stringify(pattern) === JSON.stringify(correctPattern) || JSON.stringify(pattern) === JSON.stringify(correctPattern2)) {
-    //     alert('Pattern reconnu!');
-    // } else {
-    //     alert('Pattern inconnu!');
-    // }
-    alert(JSON.stringify(pattern));
-}
+// function validatePattern() {
+//     // if (JSON.stringify(pattern) === JSON.stringify(correctPattern) || JSON.stringify(pattern) === JSON.stringify(correctPattern2)) {
+//     //     alert('Pattern reconnu!');
+//     // } else {
+//     //     alert('Pattern inconnu!');
+//     // }
+//     alert(JSON.stringify(pattern));
+// }
 document.addEventListener('mouseup', endPattern);
-// document.addEventListener('contextmenu', function(event) {
-//     event.preventDefault();
-// });
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+});
+
+function validatePattern() {
+    if (!pattern || pattern.length === 0) {
+        console.error('Pattern is empty or undefined');
+        return;
+    }
+    // alert(JSON.stringify(pattern))
+    fetch('/validate-pattern', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: JSON.stringify({
+            pattern: pattern
+        })
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                alert(data.message); // Pattern reconnu
+            } else {
+                alert(data.message); // Pattern inconnu
+            }
+        })
+        .catch(error => console.error('Erreur:', error));
+}
