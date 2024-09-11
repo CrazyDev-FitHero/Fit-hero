@@ -78,7 +78,7 @@ function getDotPosition(dot) {
         y: rect.top + rect.height / 2 - canvas.getBoundingClientRect().top
     };
 }
-
+// test
 function drawLine(start, end) {
     ctx.beginPath();
     ctx.moveTo(start.x, start.y);
