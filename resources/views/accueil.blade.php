@@ -4,8 +4,6 @@
 
 @section('content')
 
-@include('layouts.navigation')
-
 
     <div class="flex h-full">
         <!-- Sidebar -->
