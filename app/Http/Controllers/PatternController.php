@@ -21,6 +21,9 @@ class PatternController extends Controller
         } else {
             return response()->json(['success' => false, 'message' => 'Pattern inconnu!']);
         }
-
     }
+
+//    public function validateFirstPattern
+
+
 }

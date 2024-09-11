@@ -15,8 +15,9 @@ class AccueilController extends Controller
         $user = Auth::user();
         $puissance = $user->puissance;
 
-        // Génère un nombre aléatoire entre 1 et 3
-        $randomNb = random_int(1, 1);
+        $maxNumSerie = SerieExercice::max('numserie');
+
+        $randomNb = random_int(1, $maxNumSerie);
 
         // Récupère les séries d'exercices en les ordonnant par 'position'
         $randomSerie = SerieExercice::where('numserie', $randomNb)
