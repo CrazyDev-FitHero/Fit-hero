@@ -103,3 +103,7 @@
 .mr-5{
     margin-right: 5rem;
 }
+
+.log-out svg path{
+    fill: #fff;
+}
