@@ -13,8 +13,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/accueil', function () { return view('accueil');} )->middleware(['auth', 'verified'])->name('accueil');
-Route::get("/accueil2",[AccueilController::class,'index'])->middleware(['auth', 'verified'])->name('accueil2');
+//Route::get('/accueil', function () { return view('accueil');} )->middleware(['auth', 'verified'])->name('accueil');
+Route::get("/accueil",[AccueilController::class,'index'])->middleware(['auth', 'verified'])->name('accueil2');
 
 Route::post('/validate-pattern', [PatternController::class, 'validatePattern']);
 

@@ -105,7 +105,7 @@ function validatePattern() {
         console.error('Pattern is empty or undefined');
         return;
     }
-    // alert(JSON.stringify(pattern))
+    //alert(JSON.stringify(pattern))
     fetch('/validate-pattern', {
         method: 'POST',
         headers: {

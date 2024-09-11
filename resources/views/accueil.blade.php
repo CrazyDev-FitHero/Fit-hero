@@ -4,7 +4,22 @@
 
 @section('content')
 
-<div class="flex h-screen bg-main">
+    @foreach($randomSerie as $serie)
+        @for($i = 0; $i < $serie->repetitions; $i++)
+            <div class="flex flex-col items-center gap-5">
+                    <?php
+                    $imageData = base64_encode($serie->exos->imageexercice);
+                    $imageType = 'image/png'; // Assure-toi que c'est le bon type MIME
+                    $imageSrc = "data:".$imageType.";base64,".$imageData;
+                    ?>
+                <img src="{{ $imageSrc }}" alt="Image de l'exercice" class="w-10">
+            </div>
+        @endfor
+    @endforeach
+
+
+
+    <div class="flex h-screen bg-main">
     <!-- Sidebar -->
     <div class="w-15 bg-radient flex flex-col justify-between items-center py-5">
         <div class="flex flex-col items-center gap-10">
