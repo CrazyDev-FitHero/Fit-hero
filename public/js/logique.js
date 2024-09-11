@@ -3,8 +3,6 @@ const canvas = document.getElementById('patternCanvas');
 const ctx = canvas.getContext('2d');
 let isDrawing = false;
 let pattern = [];
-const correctPattern = ["0", "1", "2", "4", "8"];
-const correctPattern2 = ["0", "1", "2","5","4","3","6", "7", "8"];
 let startPosition = null;
 
 // Clear the canvas
@@ -87,14 +85,6 @@ function drawLine(start, end) {
     ctx.closePath();
 }
 
-// function validatePattern() {
-//     // if (JSON.stringify(pattern) === JSON.stringify(correctPattern) || JSON.stringify(pattern) === JSON.stringify(correctPattern2)) {
-//     //     alert('Pattern reconnu!');
-//     // } else {
-//     //     alert('Pattern inconnu!');
-//     // }
-//     alert(JSON.stringify(pattern));
-// }
 document.addEventListener('mouseup', endPattern);
 document.addEventListener('contextmenu', function(event) {
     event.preventDefault();

@@ -4,21 +4,6 @@
 
 @section('content')
 
-    @foreach($randomSerie as $serie)
-        @for($i = 0; $i < $serie->repetitions; $i++)
-            <div class="flex flex-col items-center gap-5">
-                    <?php
-                    $imageData = base64_encode($serie->exos->imageexercice);
-                    $imageType = 'image/png'; // Assure-toi que c'est le bon type MIME
-                    $imageSrc = "data:".$imageType.";base64,".$imageData;
-                    ?>
-                <img src="{{ $imageSrc }}" alt="Image de l'exercice" class="w-10">
-            </div>
-        @endfor
-    @endforeach
-
-
-
     <div class="flex h-screen bg-main">
     <!-- Sidebar -->
     <div class="w-15 bg-radient flex flex-col justify-between items-center py-5">
@@ -39,7 +24,27 @@
 
 
     <!-- Main Content -->
-    <div class="flex-1 flex justify-center items-center p-5 mt-2">
+    <div class="flex-1 flex justify-center items-center p-5 mt-2 flex-col">
+        <div class="flex flex-row">
+            <div class="flex flex-row items-center gap-5">
+                <h1 class="text-3xl text-white">Serie </h1>
+            </div>
+            <div class="flex flex-row ">
+                @foreach($randomSerie as $serie)
+                    @for($i = 0; $i < $serie->repetitions; $i++)
+                        <div class="flex flex-col items-center gap-5">
+                                <?php
+                                $imageData = base64_encode($serie->exos->imageexercice);
+                                $imageType = 'image/png';
+                                $imageSrc = "data:".$imageType.";base64,".$imageData;
+                                ?>
+                            <img src="{{ $imageSrc }}" alt="Image de l'exercice" class="w-10">
+                        </div>
+                    @endfor
+                @endforeach
+            </div>
+
+        </div>
         <div class="schema--wrapper rounded-2xl p-5 shadow-lg w-[600px] h-[300px] flex">
             <!-- Left Panel -->
             <div class="flex flex-col items-center text-white w-1/2 relative">
