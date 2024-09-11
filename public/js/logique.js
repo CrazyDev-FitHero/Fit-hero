@@ -26,7 +26,6 @@ grid.forEach(dot => {
     });
 });
 
-document.addEventListener('mouseup', endPattern);
 
 function isInsideGrid(dot) {
     return dot.closest('.grid') !== null;
@@ -69,7 +68,7 @@ function endPattern() {
     }, 200);
     initialClickInsideGrid = false;
 }
-document.addEventListener('mouseup', endPattern);
+
 
 function getDotPosition(dot) {
     const rect = dot.getBoundingClientRect();
@@ -83,7 +82,7 @@ function drawLine(start, end) {
     ctx.beginPath();
     ctx.moveTo(start.x, start.y);
     ctx.lineTo(end.x, end.y);
-    ctx.strokeStyle = '#4ABDAC';
+    ctx.strokeStyle = '#bd4a5f';
     ctx.lineWidth = 5;
     ctx.stroke();
     ctx.closePath();
@@ -97,7 +96,7 @@ function validatePattern() {
     // }
     alert(JSON.stringify(pattern));
 }
-
+document.addEventListener('mouseup', endPattern);
 document.addEventListener('contextmenu', function(event) {
     event.preventDefault();
 });
