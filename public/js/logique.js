@@ -1,4 +1,3 @@
-
 const grid = document.querySelectorAll('.grid div');
 const canvas = document.getElementById('patternCanvas');
 const ctx = canvas.getContext('2d');
@@ -82,8 +81,8 @@ function drawLine(start, end) {
     ctx.beginPath();
     ctx.moveTo(start.x, start.y);
     ctx.lineTo(end.x, end.y);
-    ctx.strokeStyle = '#bd4a5f';
-    ctx.lineWidth = 5;
+    ctx.strokeStyle = '#00000050';
+    ctx.lineWidth = 20;
     ctx.stroke();
     ctx.closePath();
 }
@@ -97,6 +96,6 @@ function validatePattern() {
     alert(JSON.stringify(pattern));
 }
 document.addEventListener('mouseup', endPattern);
-document.addEventListener('contextmenu', function(event) {
-    event.preventDefault();
-});
+// document.addEventListener('contextmenu', function(event) {
+//     event.preventDefault();
+// });
