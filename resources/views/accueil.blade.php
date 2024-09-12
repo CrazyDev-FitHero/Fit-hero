@@ -43,13 +43,13 @@
 
 
     <!-- Main Content -->
-    <div class="flex-1 flex justify-center items-center p-5 mt-2 flex-col">
-        <div class="flex flex-row">
-            <div class="flex flex-row items-center gap-5">
-                <div id="patternCounter" class="text-xl text-black">Patterns: 0</div>
-                <h1 class="text-3xl text-white">Serie </h1>
+    <div class="flex-1 flex justify-center items-center p-5 mt-2 flex-col gap-10">
+        <h1 class="h1-title">Faites progresser votre hero en réalisant des exercices !</h1>
+        <div class="set-items flex flex-row gap-2">
+            <div class="serie-title--wrapper flex flex-row items-center gap-5">
+                <h2 class="set-title">Série</h2>
             </div>
-            <div class="flex flex-row ">
+            <div class="set-schemas flex flex-row ">
                 @foreach($randomSerie as $serie)
                     @for($i = 0; $i < $serie->repetitions; $i++)
                         <div class="flex flex-col items-center gap-5">
@@ -90,12 +90,13 @@
                     <div data-index="8" class="w-12 h-12 bg-gray-300 rounded-full flex justify-center items-center">
                     </div>
                 </div>
-                <div class="mt-5 text-xl text-black">STR: {{ $puissance }}</div>
+                <div class="strenght-indicator">Force : <span class="strenght-number">{{ $puissance }}</span></div>
             </div>
 
             <!-- Right Panel -->
-            <div class="flex justify-center items-center w-1/2 bg-gray-300 rounded-2xl ml-10">
-                <img src="flexing-icon.png" alt="Flexing" class="w-60">
+            <div class="image">
+                <img src="../build/assets/img/perso-1.png" alt="">
+                <!-- <img src="../build/assets/img/developpe-couche.gif" alt=""> -->
             </div>
         </div>
     </div>
