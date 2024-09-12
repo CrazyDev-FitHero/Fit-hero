@@ -59,16 +59,16 @@ function continuePattern(dot) {
 }
 const patternCounter = document.getElementById('patternCounter');
 
-function updatePatternCounter() {
-    patternCounter.textContent = `Patterns: ${tableauDePattern.length}`;
-}
+// function updatePatternCounter() {
+//     patternCounter.textContent = `Patterns: ${tableauDePattern.length}`;
+// }
 function endPattern() {
     if (!initialClickInsideGrid) return;
     isDrawing = false;
     if (pattern.length > 0) {
         compteur++;
         tableauDePattern.push(pattern);
-        updatePatternCounter(); // Update the counter
+        // updatePatternCounter(); // Update the counter
         validatePattern();
     }
     setTimeout(() => {
@@ -135,15 +135,13 @@ function validatePattern()
 
 }
 
-function ajax(PerdreOuGagner)
-{
-    fetch('/'+PerdreOuGagner+'-str',{
+function ajax(PerdreOuGagner) {
+    fetch('/' + PerdreOuGagner + '-str', {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
         },
-
         body: JSON.stringify({
             pattern: JSON.stringify(pattern)
         })
@@ -155,16 +153,36 @@ function ajax(PerdreOuGagner)
             return response.json();
         })
         .then(data => {
-            if (data.success) {
-                alert(data.message);
-            } else {
-                alert(data.message);
-            }
+            if(PerdreOuGagner === 'gagner')
+                displayMessage("+");
+            else
+                displayMessage("-");
+
+
         })
         .catch(error => console.error('Erreur:', error));
 }
 
-
+// function displayMessage(message) {
+//     const messageDiv = document.createElement('div');
+//     messageDiv.textContent = message;
+//     messageDiv.style.position = 'fixed';
+//     messageDiv.style.top = '85%';
+//     messageDiv.style.left = '36%';
+//     messageDiv.style.transform = 'translate(-50%, -50%)';
+//     if(message === "+")
+//         messageDiv.style.backgroundColor = 'green';
+//     else
+//         messageDiv.style.backgroundColor = 'red';
+//     messageDiv.style.color = 'white';
+//     messageDiv.style.padding = '1rem';
+//     messageDiv.style.borderRadius = '5px';
+//     document.body.appendChild(messageDiv);
+//
+//     setTimeout(() => {
+//         messageDiv.remove();
+//     }, 3000); // Display the message for 3 seconds
+// }
 
 
 
