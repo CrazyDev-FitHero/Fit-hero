@@ -14,7 +14,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 //Route::get('/accueil', function () { return view('accueil');} )->middleware(['auth', 'verified'])->name('accueil');
-Route::get("/accueil",[AccueilController::class,'index'])->middleware(['auth', 'verified'])->name('accueil2');
+Route::get("/accueil",[AccueilController::class,'index'])->middleware(['auth', 'verified'])->name('accueil');
 
 Route::post('/validate-pattern', [PatternController::class, 'validatePattern']);
 
