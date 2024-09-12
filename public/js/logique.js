@@ -97,9 +97,9 @@ function drawLine(start, end) {
 }
 
 document.addEventListener('mouseup', endPattern);
-document.addEventListener('contextmenu', function(event) {
-    event.preventDefault();
-});
+// document.addEventListener('contextmenu', function(event) {
+//     event.preventDefault();
+// });
 
 function arraysEqual(arr1, arr2) {
     if (arr1.length !== arr2.length) return false;
