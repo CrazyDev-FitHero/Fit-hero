@@ -12,6 +12,8 @@ class AccueilController extends Controller
 {
     public function index()
     {
+
+
         $user = Auth::user();
         $puissance = $user->puissance;
 
@@ -19,11 +21,12 @@ class AccueilController extends Controller
 
         $randomNb = random_int(1, $maxNumSerie);
 
-        // Récupère les séries d'exercices en les ordonnant par 'position'
         $randomSerie = SerieExercice::where('numserie', $randomNb)
             ->with('exos') // Charge les exercices associés
             ->orderBy('position') // Assure que les exercices sont ordonnés par position
             ->get();
+
+
 
         return view('accueil', compact('puissance', 'randomSerie'));
     }

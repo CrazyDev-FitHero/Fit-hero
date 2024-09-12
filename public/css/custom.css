@@ -107,3 +107,23 @@
 .log-out svg path{
     fill: #fff;
 }
+
+.check-mark {
+    border: 2px solid green;
+}
+
+.cross-mark {
+    border: 2px solid red;
+}
+
+/* Add this to your custom.css file */
+.failed-message {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #e83c3c;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+}

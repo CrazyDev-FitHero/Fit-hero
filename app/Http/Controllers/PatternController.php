@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SerieExercice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -23,7 +24,9 @@ class PatternController extends Controller
         }
     }
 
-//    public function validateFirstPattern
+    public function comparaisonPattern(Request $request)
+    {
 
+    }
 
 }

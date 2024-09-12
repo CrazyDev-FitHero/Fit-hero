@@ -3,6 +3,18 @@
 @section('title', 'Accueil')
 
 @section('content')
+    <?php
+    $tab=[];
+
+    foreach($randomSerie as $serie) {
+        for ($i = 0; $i < $serie->repetitions; $i++)
+            $tab[] = $serie->exos->codeexercice;
+    }
+    ?>
+    <script>
+        const expectedSeries = @json($tab);
+    </script>
+
 
     <div class="flex h-screen bg-main">
     <!-- Sidebar -->
@@ -34,6 +46,7 @@
     <div class="flex-1 flex justify-center items-center p-5 mt-2 flex-col">
         <div class="flex flex-row">
             <div class="flex flex-row items-center gap-5">
+                <div id="patternCounter" class="text-xl text-black">Patterns: 0</div>
                 <h1 class="text-3xl text-white">Serie </h1>
             </div>
             <div class="flex flex-row ">
