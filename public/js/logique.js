@@ -117,15 +117,15 @@ function validatePattern()
     // console.log(compteur-1);
     console.log(score);
 
-
-    if (arraysEqual(tableauDePattern[compteur-1], expectedPattern)) {
-        images[compteur-1].classList.add('check-mark');
-        images[compteur-1].classList.remove('cross-mark');
-        score++;
-    }
-    else {
-        images[compteur-1].classList.add('cross-mark');
-        images[compteur-1].classList.remove('check-mark');
+    if(compteur) {
+        if (arraysEqual(tableauDePattern[compteur - 1], expectedPattern)) {
+            images[compteur - 1].classList.add('check-mark');
+            images[compteur - 1].classList.remove('cross-mark');
+            score++;
+        } else {
+            images[compteur - 1].classList.add('cross-mark');
+            images[compteur - 1].classList.remove('check-mark');
+        }
     }
 }
 
