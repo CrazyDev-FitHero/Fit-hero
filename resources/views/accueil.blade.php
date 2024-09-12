@@ -95,7 +95,8 @@
 
             <!-- Right Panel -->
             <div class="image">
-                <img src="../build/assets/img/perso-1.png" alt="" class="w-60">
+                <img src="../build/assets/img/perso-1.png" alt="">
+                <!-- <img src="../build/assets/img/developpe-couche.gif" alt=""> -->
             </div>
         </div>
     </div>
