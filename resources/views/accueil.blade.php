@@ -97,10 +97,13 @@
             </div>
 
             <!-- Right Panel -->
-            <div class="image">
-                <img src="../build/assets/img/perso-1.png" alt="">
-                <!-- <img src="../build/assets/img/developpe-couche.gif" alt=""> -->
+            <div class="exercice-image image">
+                <img src="../build/assets/img/developpe-couche.gif" alt="">
             </div>
+            
+        </div>
+        <div class="perso-image image">
+            <img src="../build/assets/img/perso-1.png" alt="">
         </div>
     </div>
 </div>
