@@ -113,10 +113,6 @@
 
             <!-- Right Panel -->
             <div class="image">
-{{--                <img src="../build/assets/img/perso-1.png" alt="">--}}
-                <!-- <img src="../build/assets/img/developpe-couche.gif" alt=""> -->
-
-
                 <img src="data:image/gif;base64,{{ $tabGif[0]}}" alt="Exercice GIF1">
                 <img src="data:image/gif;base64,{{ $tabGif[1] }}" alt="Exercice GIF2">
                 <img src="data:image/gif;base64,{{ $tabGif[2] }}" alt="Exercice GIF3">
@@ -127,13 +123,10 @@
                 <img src="data:image/gif;base64,{{ $tabGif[7]}}" alt="Exercice GIF8">
                 <img src="data:image/gif;base64,{{ $tabGif[8] }}" alt="Exercice GIF9">
                 <img src="data:image/gif;base64,{{ $tabGif[9] }}" alt="Exercice GIF10">
-
-
-
+            </div>
             <div class="exercice-image image">
                 <img src="../build/assets/img/developpe-couche.gif" alt="">
             </div>
-            
         </div>
         <div class="perso-image image">
             <img src="../build/assets/img/perso-1.png" alt="">
