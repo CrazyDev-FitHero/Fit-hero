@@ -97,26 +97,39 @@ function drawLine(start, end) {
 }
 
 document.addEventListener('mouseup', endPattern);
-// document.addEventListener('contextmenu', function(event) {
-//     event.preventDefault();
-// });
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+});
 
 function arraysEqual(arr1, arr2) {
     if (arr1.length !== arr2.length) return false;
+
     for (let i = 0; i < arr1.length; i++) {
-        if (arr1[i] !== arr2[i]) return false;
+        if (arr1[i] !== arr2[i]) break;
+        if (i === arr1.length - 1) return true;
     }
+
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== arr2[arr2.length - 1 - i]) return false;
+    }
+
     return true;
 }
 
+
 function validatePattern()
 {
+
+    if(compteur == 11)
+    {
+        location.reload();
+        return;
+    }
+
     const images = document.querySelectorAll('.flex-row img');
     const expectedPattern = JSON.parse(expectedSeries[compteur-1]);
-    // console.log(JSON.parse(expectedSeries[compteur-1]));
-    // console.log(tableauDePattern[compteur-1], expectedPattern);
-    // console.log(compteur-1);
-    // console.log(score);
+    console.log(tableauDePattern[compteur - 1]);
+
 
         if (arraysEqual(tableauDePattern[compteur - 1], expectedPattern)) {
             images[compteur - 1].classList.add('check-mark');
@@ -163,56 +176,28 @@ function ajax(PerdreOuGagner) {
         .catch(error => console.error('Erreur:', error));
 }
 
-// function displayMessage(message) {
-//     const messageDiv = document.createElement('div');
-//     messageDiv.textContent = message;
-//     messageDiv.style.position = 'fixed';
-//     messageDiv.style.top = '85%';
-//     messageDiv.style.left = '36%';
-//     messageDiv.style.transform = 'translate(-50%, -50%)';
-//     if(message === "+")
-//         messageDiv.style.backgroundColor = 'green';
-//     else
-//         messageDiv.style.backgroundColor = 'red';
-//     messageDiv.style.color = 'white';
-//     messageDiv.style.padding = '1rem';
-//     messageDiv.style.borderRadius = '5px';
-//     document.body.appendChild(messageDiv);
-//
-//     setTimeout(() => {
-//         messageDiv.remove();
-//     }, 3000); // Display the message for 3 seconds
-// }
-
-
-
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('failedAttempt') === 'true') {
-        const message = document.createElement('div');
-        message.textContent = 'Vous avez échoué';
-        message.style.position = 'fixed';
-        message.style.top = '10%';
-        message.style.left = '50%';
-        message.style.transform = 'translate(-50%, -50%)';
-        message.style.backgroundColor = 'red';
-        message.style.color = 'white';
-        message.style.padding = '1rem';
-        message.style.borderRadius = '8px';
-        document.body.appendChild(message);
-
-        setTimeout(() => {
-            message.remove();
-            localStorage.removeItem('failedAttempt');
-        }, 3000);
+function displayMessage(message) {
+    const plusMoinsDiv = document.getElementById('plus-moins-id');
+    plusMoinsDiv.textContent = message;
+    if (message === "+") {
+        plusMoinsDiv.style.borderColor = "green";
+        plusMoinsDiv.style.backgroundColor = "#90EE90";
+        plusMoinsDiv.style.color='#556B2F';
+    } else {
+        plusMoinsDiv.style.borderColor = "red";
+        plusMoinsDiv.style.backgroundColor = "#DC143C";
+        plusMoinsDiv.style.color='#970c0c';
     }
-});
+
+    setTimeout(() => {
+        plusMoinsDiv.textContent = '';
+        plusMoinsDiv.style.borderColor = "black";
+        plusMoinsDiv.style.backgroundColor = "#3E4686";
+    }, 2000);
+}
+
+
+
 // function validatePattern() {
 //     if (!pattern || pattern.length === 0) {
 //         console.error('Pattern is empty or undefined');

@@ -91,7 +91,7 @@
                     </div>
                 </div>
                 <div class="flex gap-4 mt-4">
-                    <div class="plus-moins">-</div>
+                    <div class="plus-moins" id="plus-moins-id"></div>
                     <div class="strenght-indicator">Force : <span class="strenght-number">{{ $puissance }}</span></div>
                 </div>
             </div>
