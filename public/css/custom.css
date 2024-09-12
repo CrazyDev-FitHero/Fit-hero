@@ -116,7 +116,6 @@
     border: 2px solid red;
 }
 
-/* Add this to your custom.css file */
 .failed-message {
     position: fixed;
     top: 10%;
@@ -126,4 +125,63 @@
     color: white;
     padding: 1rem;
     border-radius: 8px;
+}
+
+.strenght-indicator{
+    padding: .5rem 1rem;
+    border: 5px solid #000;
+    color: #89ccff;
+    margin-top: 1rem;
+    border-radius: 1.5rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.strenght-number{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.set-items{
+    background-color: #3E4686;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.set-counter{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #89ccff;
+}
+
+.serie-title--wrapper{
+    background-color: #343F4C;
+    padding: .5rem;
+    border-radius: 12px 0 0 12px;
+}
+
+.set-title{
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #89ccff;
+    text-transform: uppercase;
+    font-family: 'Anton';
+    letter-spacing: 1px;
+}
+
+.set-schemas{
+    background-color: #343F4C;
+    padding: .5rem;
+    border-radius: 0 12px 12px 0;
+}
+
+.h1-title{
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #89ccff;
+    text-transform: uppercase;
+    font-style: italic;
+    font-family: 'Anton';
+    letter-spacing: 1px;
 }
