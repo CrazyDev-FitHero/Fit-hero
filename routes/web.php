@@ -17,8 +17,8 @@ Route::get('/dashboard', function () {
 Route::get("/accueil",[AccueilController::class,'index'])->middleware(['auth', 'verified'])->name('accueil');
 
 Route::post('/validate-pattern', [PatternController::class, 'validatePattern']);
-Route::get('/comparaison-pattern/{pattern}/{numero}', [PatternController::class, 'comparaisonPattern']);
-
+Route::patch('/gagner-str',[PatternController::class,'gagnerstr'])->name('gagner-str');
+Route::patch('/perdre-str',[PatternController::class,'perdrestr'])->name('perdre-str');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

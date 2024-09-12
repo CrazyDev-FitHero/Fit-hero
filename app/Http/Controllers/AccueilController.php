@@ -22,8 +22,8 @@ class AccueilController extends Controller
         $randomNb = random_int(1, $maxNumSerie);
 
         $randomSerie = SerieExercice::where('numserie', $randomNb)
-            ->with('exos') // Charge les exercices associés
-            ->orderBy('position') // Assure que les exercices sont ordonnés par position
+            ->with('exos')
+            ->orderBy('position')
             ->get();
 
 

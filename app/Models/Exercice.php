@@ -17,10 +17,10 @@ class Exercice extends Model
     public $timestamps = false;
 
     protected $casts = [
-
-'numexercice' => 'int',
-'codeexercice' => 'string',
-'nomexercice' => 'string'
+        'numexercice' => 'int',
+        'codeexercice' => 'string',
+        'nomexercice' => 'string',
+        'gainexercice' => 'int'
     ];
     public function serie()
     {

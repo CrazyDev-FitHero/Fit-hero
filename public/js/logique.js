@@ -97,9 +97,9 @@ function drawLine(start, end) {
 }
 
 document.addEventListener('mouseup', endPattern);
-// document.addEventListener('contextmenu', function(event) {
-//     event.preventDefault();
-// });
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+});
 
 function arraysEqual(arr1, arr2) {
     if (arr1.length !== arr2.length) return false;
@@ -113,21 +113,66 @@ function validatePattern()
 {
     const images = document.querySelectorAll('.flex-row img');
     const expectedPattern = JSON.parse(expectedSeries[compteur-1]);
+    // console.log(JSON.parse(expectedSeries[compteur-1]));
     // console.log(tableauDePattern[compteur-1], expectedPattern);
     // console.log(compteur-1);
-    console.log(score);
+    // console.log(score);
 
-    if(compteur) {
         if (arraysEqual(tableauDePattern[compteur - 1], expectedPattern)) {
             images[compteur - 1].classList.add('check-mark');
             images[compteur - 1].classList.remove('cross-mark');
             score++;
+
+            ajax('gagner');
+
         } else {
+
             images[compteur - 1].classList.add('cross-mark');
             images[compteur - 1].classList.remove('check-mark');
+
+            ajax('perdre');
         }
-    }
+
 }
+
+function ajax(PerdreOuGagner)
+{
+    fetch('/'+PerdreOuGagner+'-str',{
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+
+        body: JSON.stringify({
+            pattern: JSON.stringify(pattern)
+        })
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                alert(data.message);
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => console.error('Erreur:', error));
+}
+
+
+
+
+
+
+
+
+
+
 
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -58,7 +58,7 @@
                                 $imageType = 'image/png';
                                 $imageSrc = "data:".$imageType.";base64,".$imageData;
                                 ?>
-                            <img src="{{ $imageSrc }}" alt="Image de l'exercice" class="w-10">
+                            <img src="{{ $imageSrc }}" alt="Exercice №{{$i}}" class="w-10">
                         </div>
                     @endfor
                 @endforeach
