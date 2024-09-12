@@ -3,16 +3,31 @@
 @section('title', 'Accueil')
 
 @section('content')
+
+
+
     <?php
     $tab=[];
-
+    $tabGif = [];
     foreach($randomSerie as $serie) {
         for ($i = 0; $i < $serie->repetitions; $i++)
+        {
             $tab[] = $serie->exos->codeexercice;
+
+            $tabGif[] = base64_encode($serie->exos->getGifExerciceBase64());
+        }
     }
+
     ?>
+
+
+{{--    @foreach($tabGif as $gif)--}}
+{{--        <img src="data:image/gif;base64,{{ $gif->getGifExerciceBase64() }}" alt="Exercice GIF">--}}
+{{--    @endforeach--}}
+
     <script>
         const expectedSeries = @json($tab);
+        const gifExercices = @json($tabGif);
     </script>
 
 
@@ -98,11 +113,27 @@
 
             <!-- Right Panel -->
             <div class="image">
-                <img src="../build/assets/img/perso-1.png" alt="">
+{{--                <img src="../build/assets/img/perso-1.png" alt="">--}}
                 <!-- <img src="../build/assets/img/developpe-couche.gif" alt=""> -->
+
+
+                <img src="data:image/gif;base64,{{ $tabGif[0]}}" alt="Exercice GIF1">
+                <img src="data:image/gif;base64,{{ $tabGif[1] }}" alt="Exercice GIF2">
+                <img src="data:image/gif;base64,{{ $tabGif[2] }}" alt="Exercice GIF3">
+                <img src="data:image/gif;base64,{{ $tabGif[3] }}" alt="Exercice GIF4">
+                <img src="data:image/gif;base64,{{ $tabGif[4] }}" alt="Exercice GIF5">
+                <img src="data:image/gif;base64,{{ $tabGif[5] }}" alt="Exercice GIF6">
+                <img src="data:image/gif;base64,{{ $tabGif[6] }}" alt="Exercice GIF7">
+                <img src="data:image/gif;base64,{{ $tabGif[7]}}" alt="Exercice GIF8">
+                <img src="data:image/gif;base64,{{ $tabGif[8] }}" alt="Exercice GIF9">
+                <img src="data:image/gif;base64,{{ $tabGif[9] }}" alt="Exercice GIF10">
+
+
+
             </div>
         </div>
     </div>
 </div>
+
 
 @endsection

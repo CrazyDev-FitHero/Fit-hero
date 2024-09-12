@@ -9,6 +9,7 @@ let score=1;
 let compteur =0;
 let tableauDePattern=[];
 
+
 // Clear the canvas
 function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -59,16 +60,12 @@ function continuePattern(dot) {
 }
 const patternCounter = document.getElementById('patternCounter');
 
-// function updatePatternCounter() {
-//     patternCounter.textContent = `Patterns: ${tableauDePattern.length}`;
-// }
 function endPattern() {
     if (!initialClickInsideGrid) return;
     isDrawing = false;
     if (pattern.length > 0) {
         compteur++;
         tableauDePattern.push(pattern);
-        // updatePatternCounter(); // Update the counter
         validatePattern();
     }
     setTimeout(() => {
@@ -117,35 +114,29 @@ function arraysEqual(arr1, arr2) {
 }
 
 
-function validatePattern()
-{
-
-    if(compteur == 11)
-    {
+function validatePattern() {
+    if (compteur == 11) {
         location.reload();
         return;
     }
 
     const images = document.querySelectorAll('.flex-row img');
-    const expectedPattern = JSON.parse(expectedSeries[compteur-1]);
-    console.log(tableauDePattern[compteur - 1]);
+    const expectedPattern = JSON.parse(expectedSeries[compteur - 1]);
 
+    if (arraysEqual(tableauDePattern[compteur - 1], expectedPattern)) {
+        images[compteur - 1].classList.add('check-mark');
+        images[compteur - 1].classList.remove('cross-mark');
+        score++;
 
-        if (arraysEqual(tableauDePattern[compteur - 1], expectedPattern)) {
-            images[compteur - 1].classList.add('check-mark');
-            images[compteur - 1].classList.remove('cross-mark');
-            score++;
+        displayGif(compteur - 1); // Affiche le GIF correspondant
+        ajax('gagner');
 
-            ajax('gagner');
+    } else {
+        images[compteur - 1].classList.add('cross-mark');
+        images[compteur - 1].classList.remove('check-mark');
 
-        } else {
-
-            images[compteur - 1].classList.add('cross-mark');
-            images[compteur - 1].classList.remove('check-mark');
-
-            ajax('perdre');
-        }
-
+        ajax('perdre');
+    }
 }
 
 function ajax(PerdreOuGagner) {
@@ -182,11 +173,11 @@ function displayMessage(message) {
     if (message === "+") {
         plusMoinsDiv.style.borderColor = "green";
         plusMoinsDiv.style.backgroundColor = "#90EE90";
-        plusMoinsDiv.style.color='#556B2F';
+        plusMoinsDiv.style.color = '#556B2F';
     } else {
         plusMoinsDiv.style.borderColor = "red";
         plusMoinsDiv.style.backgroundColor = "#DC143C";
-        plusMoinsDiv.style.color='#970c0c';
+        plusMoinsDiv.style.color = '#970c0c';
     }
 
     setTimeout(() => {
@@ -195,62 +186,7 @@ function displayMessage(message) {
         plusMoinsDiv.style.backgroundColor = "#3E4686";
     }, 2000);
 }
-
-
-
-// function validatePattern() {
-//     if (!pattern || pattern.length === 0) {
-//         console.error('Pattern is empty or undefined');
-//         return;
-//     }
-//     //alert(JSON.stringify(pattern))
-//     fetch('/validate-pattern', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-//         },
-//         body: JSON.stringify({
-//             pattern: pattern
-//         })
-//     })
-//         .then(response => {
-//             if (!response.ok) {
-//                 throw new Error('Network response was not ok');
-//             }
-//             return response.json();
-//         })
-//         .then(data => {
-//             if (data.success) {
-//                 alert(data.message); // Pattern reconnu
-//             } else {
-//                 alert(data.message); // Pattern inconnu
-//             }
-//         })
-//         .catch(error => console.error('Erreur:', error));
-// }
-
-// function validatePattern() {
-//     if (compteur == 10) {
-//         const images = document.querySelectorAll('.flex-row img');
-//         for (let i = 0; i < 10; i++) {
-//             const expectedPattern = JSON.parse(expectedSeries[i]);
-//             console.log(tableauDePattern[i], expectedPattern);
-//             if (arraysEqual(tableauDePattern[i], expectedPattern)) {
-//                 images[i].classList.add('check-mark');
-//                 images[i].classList.remove('cross-mark');
-//                 score++;
-//             } else {
-//                 images[i].classList.add('cross-mark');
-//                 images[i].classList.remove('check-mark');
-//             }
-//         }
-//         console.log(score);
-//
-//         if (score < 5) {
-//             localStorage.setItem('failedAttempt', 'true');
-//             location.reload();
-//         }
-//     }
-// }
-
+function displayGif(index) {
+    const imageContainer = document.querySelector('.image');
+    imageContainer.innerHTML = `<img src="data:image/gif;base64,${gifExercices[index]}" alt="Exercice GIF${index + 1}">`;
+}

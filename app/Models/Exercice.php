@@ -27,4 +27,15 @@ class Exercice extends Model
         return $this->belongsToMany(SerieExercice::class, 'numserie');
     }
 
+    public function getGifExerciceBase64()
+    {
+        return base64_encode($this->gifexercice);
+    }
+
+    public function getImageExerciceBase64()
+    {
+        // Assumes there is an 'imageexercice' BLOB column in the table
+        return base64_encode($this->imageexercice);
+    }
+
 }
