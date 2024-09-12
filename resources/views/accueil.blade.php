@@ -90,7 +90,10 @@
                     <div data-index="8" class="w-12 h-12 bg-gray-300 rounded-full flex justify-center items-center">
                     </div>
                 </div>
-                <div class="strenght-indicator">Force : <span class="strenght-number">{{ $puissance }}</span></div>
+                <div class="flex gap-4 mt-4">
+                    <div class="plus-moins">-</div>
+                    <div class="strenght-indicator">Force : <span class="strenght-number">{{ $puissance }}</span></div>
+                </div>
             </div>
 
             <!-- Right Panel -->
