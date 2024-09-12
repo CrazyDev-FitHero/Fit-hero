@@ -94,8 +94,8 @@
             </div>
 
             <!-- Right Panel -->
-            <div class="flex justify-center items-center w-1/2 bg-gray-300 rounded-2xl ml-10">
-                <img src="../build/assets/img/developpe-couche.gif" alt="" class="w-60">
+            <div class="image">
+                <img src="../build/assets/img/perso-1.png" alt="" class="w-60">
             </div>
         </div>
     </div>
