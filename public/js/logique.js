@@ -121,21 +121,31 @@ function validatePattern() {
     }
 
     const images = document.querySelectorAll('.flex-row img');
-    const expectedPattern = JSON.parse(expectedSeries[compteur - 1]);
+    let expectedPatternString = expectedSeries[compteur - 1];
 
-    if (arraysEqual(tableauDePattern[compteur - 1], expectedPattern)) {
-        images[compteur - 1].classList.add('check-mark');
-        images[compteur - 1].classList.remove('cross-mark');
-        score++;
+    // Remplacez les guillemets simples par des guillemets doubles
+    expectedPatternString = expectedPatternString.replace(/'/g, '"');
 
-        displayGif(compteur - 1); // Affiche le GIF correspondant
-        ajax('gagner');
 
-    } else {
-        images[compteur - 1].classList.add('cross-mark');
-        images[compteur - 1].classList.remove('check-mark');
+    try {
+        const expectedPattern = JSON.parse(expectedPatternString);
 
-        ajax('perdre');
+        if (arraysEqual(tableauDePattern[compteur - 1], expectedPattern)) {
+            images[compteur - 1].classList.add('check-mark');
+            images[compteur - 1].classList.remove('cross-mark');
+            score++;
+
+            // displayGif(compteur - 1); // Affiche le GIF correspondant
+            ajax('gagner');
+
+        } else {
+            images[compteur - 1].classList.add('cross-mark');
+            images[compteur - 1].classList.remove('check-mark');
+
+            ajax('perdre');
+        }
+    } catch (e) {
+        console.error('Invalid JSON:', e);
     }
 }
 
@@ -186,7 +196,7 @@ function displayMessage(message) {
         plusMoinsDiv.style.backgroundColor = "#3E4686";
     }, 2000);
 }
-function displayGif(index) {
-    const imageContainer = document.querySelector('.image');
-    imageContainer.innerHTML = `<img src="data:image/gif;base64,${gifExercices[index]}" alt="Exercice GIF${index + 1}">`;
-}
+// function displayGif(index) {
+//     const imageContainer = document.querySelector('.image');
+//     imageContainer.innerHTML = `<img src="data:image/gif;base64,${gifExercices[index]}" alt="Exercice GIF${index + 1}">`;
+// }

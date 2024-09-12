@@ -14,7 +14,7 @@
         {
             $tab[] = $serie->exos->codeexercice;
 
-            $tabGif[] = base64_encode($serie->exos->getGifExerciceBase64());
+//            $tabGif[] = base64_encode($serie->exos->getGifExerciceBase64());
         }
     }
 
@@ -27,7 +27,7 @@
 
     <script>
         const expectedSeries = @json($tab);
-        const gifExercices = @json($tabGif);
+        {{--const gifExercices = @json($tabGif);--}}
     </script>
 
 
@@ -113,16 +113,7 @@
 
             <!-- Right Panel -->
             <div class="exercice-image image">
-            <img src="data:image/gif;base64,{{ $tabGif[0]}}" alt="Exercice GIF1">
-                <img src="data:image/gif;base64,{{ $tabGif[1] }}" alt="Exercice GIF2">
-                <img src="data:image/gif;base64,{{ $tabGif[2] }}" alt="Exercice GIF3">
-                <img src="data:image/gif;base64,{{ $tabGif[3] }}" alt="Exercice GIF4">
-                <img src="data:image/gif;base64,{{ $tabGif[4] }}" alt="Exercice GIF5">
-                <img src="data:image/gif;base64,{{ $tabGif[5] }}" alt="Exercice GIF6">
-                <img src="data:image/gif;base64,{{ $tabGif[6] }}" alt="Exercice GIF7">
-                <img src="data:image/gif;base64,{{ $tabGif[7]}}" alt="Exercice GIF8">
-                <img src="data:image/gif;base64,{{ $tabGif[8] }}" alt="Exercice GIF9">
-                <img src="data:image/gif;base64,{{ $tabGif[9] }}" alt="Exercice GIF10">
+{{--            <img src="data:image/gif;base64,{{ $tabGif[0]}}" alt="Exercice GIF1">--}}
             </div>
         </div>
         <div class="perso-image image">
