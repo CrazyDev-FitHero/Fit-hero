@@ -186,12 +186,21 @@
 }
 
 .image{
-    width: 400px;
     aspect-ratio: 1/1;
     overflow: hidden;
     border-radius: 12px;
 }
 
+.exercice-image{
+    width: 400px;
+}
+
+.perso-image{
+    width: 200px;
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+}
 .image img{
     width: 100%;
     height: 100%;
