@@ -22,7 +22,7 @@
 
 
 {{--    @foreach($tabGif as $gif)--}}
-{{--        <img src="data:image/gif;base64,{{ $gif->getGifExerciceBase64() }}" alt="Exercice GIF">--}}
+{{--        <img src="data:img/gif;base64,{{ $gif->getGifExerciceBase64() }}" alt="Exercice GIF">--}}
 {{--    @endforeach--}}
 
     <script>
@@ -70,7 +70,7 @@
                         <div class="flex flex-col items-center gap-5">
                                 <?php
                                 $imageData = base64_encode($serie->exos->imageexercice);
-                                $imageType = 'image/png';
+                                $imageType = 'img/png';
                                 $imageSrc = "data:".$imageType.";base64,".$imageData;
                                 ?>
                             <img src="{{ $imageSrc }}" alt="Exercice №{{$i}}" class="w-10">
@@ -113,7 +113,7 @@
 
             <!-- Right Panel -->
             <div class="exercice-image image">
-{{--            <img src="data:image/gif;base64,{{ $tabGif[0]}}" alt="Exercice GIF1">--}}
+{{--            <img src="data:img/gif;base64,{{ $tabGif[0]}}" alt="Exercice GIF1">--}}
             </div>
         </div>
         <div class="perso-image image">

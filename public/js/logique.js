@@ -197,6 +197,6 @@ function displayMessage(message) {
     }, 2000);
 }
 // function displayGif(index) {
-//     const imageContainer = document.querySelector('.image');
-//     imageContainer.innerHTML = `<img src="data:image/gif;base64,${gifExercices[index]}" alt="Exercice GIF${index + 1}">`;
+//     const imageContainer = document.querySelector('.img');
+//     imageContainer.innerHTML = `<img src="data:img/gif;base64,${gifExercices[index]}" alt="Exercice GIF${index + 1}">`;
 // }
